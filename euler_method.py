@@ -9,18 +9,19 @@ g = 3.71 #gravitational acceleration on Mars in m/s^2
 C_D = 0.47 #drag coefficient
 
 
-R_gas = 2077.0 #specfic gas constant for gas Helium
+R_gas = 2077.0 #specfic gas constant for Helium
 
 r_max = 10    #maximum radius
 V_max = (4/3) * np.pi *r_max**3
 
-#inital conditions
 t0=0.00
+z0=0.0
+
+#inital conditions:modifiable
 tf = 10000
 h=1
-
-z0=0.0
 v0=0.0
+###
 
 y0=np.array([z0,v0])
 

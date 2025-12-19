@@ -12,7 +12,7 @@ C_D = 0.47 #drag coefficient
 R_gas = 2077.0 #specfic gas constant for gas **insert gas tyep** (**insert units)
 
 t0=0.00
-z0=0.0    #inital altitu
+z0=0.0    
 
 #inital conditions: modifiable
 tf =4000    #simulation time (seconds)

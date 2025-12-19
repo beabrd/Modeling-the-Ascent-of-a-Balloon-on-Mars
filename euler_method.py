@@ -9,10 +9,11 @@ g = 3.71 #gravitational acceleration on Mars in m/s^2
 C_D = 0.47 #drag coefficient
 
 
-R_gas = 2077.0 #specfic gas constant for gas **insert gas tyep** (**insert units)
+R_gas = 2077.0 #specfic gas constant for gas Helium
 
-r_max = 10
+r_max = 10    #maximum radius
 V_max = (4/3) * np.pi *r_max**3
+
 #inital conditions
 t0=0.00
 tf = 10000

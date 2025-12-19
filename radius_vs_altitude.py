@@ -9,7 +9,7 @@ g = 3.71 #gravitational acceleration on Mars in m/s^2
 C_D = 0.47 #drag coefficient
 
 
-R_gas = 2077.0 #specfic gas constant for gas **insert gas tyep** (**insert units)
+R_gas = 2077.0 #specfic gas constant for Helium
 
 t0=0.00
 z0=0.0    

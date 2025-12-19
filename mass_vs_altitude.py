@@ -14,12 +14,12 @@ R_gas = 2077.0 #specfic gas constant for gas **insert gas tyep** (**insert units
 r_max = 10
 V_max = (4/3) * np.pi *r_max**3
 
-#inital conditions:
 t0=0.00
+z0=0.0
+
+#inital conditions: modifiable
 tf = 4000    #simulation end time (seconds)
 h=1.0        #step size (seconds)
-
-z0=0.0
 v0=0.0
 ###
 

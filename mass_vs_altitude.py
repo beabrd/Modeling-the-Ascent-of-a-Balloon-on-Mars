@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 
 
 mass_total = 20  #total mass of ballon system (ballon + gas + payload) in kg
-mass_gas = 5 #mass of lifting gas inside the ballon (kg)
+mass_gas = 5 #mass of lifting gas inside the balloon (kg)
 g = 3.71 #gravitational acceleration on Mars in m/s^2
 
 C_D = 0.47 #drag coefficient
 
 
-R_gas = 2077.0 #specfic gas constant for Helium
+R_gas = 2077.0 # specific gas constant for Helium
 
 r_max = 10
 V_max = (4/3) * np.pi *r_max**3
@@ -26,7 +26,7 @@ v0=0.0
 y0=np.array([z0,v0])
 
 def mars_temperature_C(z):
-    #return Martian temperature depending on alltiude
+    #return Martian temperature depending on altitude
     if z > 7000: #z is altitude in meters
         return -23.4 - 0.00222 *z
     else:
@@ -37,9 +37,9 @@ def mars_pressure(z):
     return 0.699 * np.exp(-0.00009*z)
 
 def mars_density (z):
-    #return the density of martian air depending on altiude (z), tempeture, and pressure
+    #return the density of martian air depending on altitude (z), temperature, and pressure
     T_C = mars_temperature_C(z) #find tempeture in celesis
-    T_K = T_C +273.15 #convert tempeture to kelvin
+    T_K = T_C +273.15 #convert temperature to kelvin
     p = mars_pressure(z) *1000 #find pressure and convert to pa
     return p/ (192.1 * T_K)
 
@@ -51,7 +51,7 @@ def balloon_volume(z):
     return min(V_ideal, V_max)
 
 def balloon_cross_sectional_area(z):
-    V=balloon_volume(z) #cross sectional area for drag of sphere is pir^2
+    V=balloon_volume(z) # cross-sectional area for drag of sphere is pixr^2
     return np.pi * ((3*V) / (4*np.pi)) **(2/3)
 
 def derivatives(t,y):
@@ -68,12 +68,12 @@ def derivatives(t,y):
     V= balloon_volume(z)
     S = balloon_cross_sectional_area(z)
 
-    #calulate buoyancy - weight term
+    # calculate buoyancy - weight term
     F_buoy = rho * V * g
     F_weight = mass_total * g
 
 
-    #calulate drag term
+    # calculate drag term
     F_drag= -0.5*rho*C_D*S*v*abs(v) # allows drag to be negative
 
     #find net acceleration
@@ -91,10 +91,10 @@ def RK4_solver(t0,tf,h,y0):
     #np.arrange(start,stop,step)
     t_values = np.arange(t0,tf+h,h)
 
-    # store solutions where rows time steps and colums is [z,v]
+    # store solutions where rows are time steps and colums is [z,v]
     y_values = np.zeros((len(t_values), len(y0)))
 
-    #set the inital conditions, first column is y0
+    #set the initial conditions, first column is y0
     y_values[0,:] = y0
 
     for n in range(len(t_values)-1):
